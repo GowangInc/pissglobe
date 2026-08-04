@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Global Piss Landscape</title>
-<meta name="description" content="Interactive CRT globe comparing how 14 jurisdictions approach online age verification, blocking and self-regulation. Snapshot: 4 August 2026.">
+<meta name="description" content="Interactive CRT globe comparing public-urination rules across 14 jurisdictions. Snapshot: 4 August 2026.">
 <style>
   /* ============ ALIEN (1979) NOSTROMO TERMINAL AESTHETIC ============ */
   :root {
@@ -312,7 +312,7 @@
 <div id="app">
   <header id="head">
     <h1>Global Piss Landscape</h1>
-    <span class="sub">Jurisdiction comparison · online safety stances</span>
+    <span class="sub">Comparative public-urination rules · representative jurisdictions</span>
     <span class="hud-chip mono"><span id="jcount">0</span> JURISDICTIONS TRACKED</span>
   </header>
 
@@ -374,84 +374,84 @@ const REGIONS = {
 };
 
 const JURISDICTIONS = [
-  { id: "uk",        name: "United Kingdom",   city: "London",       lat: 51.51,  lon: -0.13,  region: "europe",
-    stance: "Age verification",
-    rule: "Pursues statutory <em>age verification</em> for online services, led by the Online Safety Act framework and Ofcom guidance.",
-    consequences: "<em>Blocking / restriction</em> of services that fail to comply; regulatory enforcement powers against non-compliant platforms.",
-    children: "Child-safety duties embedded in the regulatory framework; platforms must assess risk to minors." },
-  { id: "cn",        name: "China",             city: "Beijing",      lat: 39.90,  lon: 116.40, region: "apac",
-    stance: "Registration + ID",
-    rule: "Requires <em>real-name registration and identity verification</em> for online accounts, with a dedicated youth-protection regime.",
-    consequences: "<em>Restricted gaming hours and content</em> for minors; platform obligations under the anti-addiction rules.",
-    children: "Explicit minor-protection regime: time limits, content curation and parental controls mandated." },
-  { id: "sg",        name: "Singapore",         city: "Singapore",    lat: 1.35,   lon: 103.82, region: "apac",
-    stance: "Age verification",
-    rule: "Pursues <em>age verification and access controls</em> on designated services under the online safety framework.",
-    consequences: "<em>Blocking orders</em> for harmful sites; service providers must implement access restrictions for minors.",
-    children: "Platforms must deploy age assurance and parental-control tools for child users." },
-  { id: "jp",        name: "Japan",             city: "Tokyo",        lat: 35.68,  lon: 139.69, region: "apac",
-    stance: "Self-regulation",
-    rule: "Relies primarily on <em>industry self-regulation and filtering services</em> rather than mandatory platform verification.",
-    consequences: "<em>Voluntary filtering</em> for home and mobile devices; limited statutory blocking.",
-    children: "Filtering programs promoted for children's devices; parental opt-in encouraged." },
-  { id: "kr",        name: "South Korea",       city: "Seoul",        lat: 37.57,  lon: 126.98, region: "apac",
-    stance: "Self-regulation",
-    rule: "Combines <em>real-name elements and self-regulation</em>; legal pressure on platforms to protect minors.",
-    consequences: "<em>Content restrictions and service curfews</em> for minors; platform cooperation expected.",
-    children: "Youth-protection obligations with device-level filtering promoted for minors." },
-  { id: "tw",        name: "Taiwan",            city: "Taipei",       lat: 25.03,  lon: 121.57, region: "apac",
-    stance: "Blocking / filtering",
-    rule: "Approach centred on <em>blocking and filtering</em> of harmful content with a focus on education and awareness.",
-    consequences: "<em>ISP-level blocking</em> of flagged sites; awareness campaigns rather than strict verification.",
-    children: "School and family education emphasised; filtering tools recommended for minors." },
-  { id: "nz",        name: "New Zealand",       city: "Wellington",   lat: -41.29, lon: 174.78, region: "apac",
-    stance: "Blocking / filtering",
-    rule: "Focuses on <em>content filtering and youth counselling</em> rather than mandatory platform verification.",
-    consequences: "<em>ISP filtering</em> of harmful material; support services for affected young people.",
-    children: "Youth-facing support and helplines central to the national approach." },
-  { id: "au",        name: "Australia",         city: "Canberra",     lat: -35.28, lon: 149.13, region: "apac",
-    stance: "Registration + ID",
-    rule: "Pursues <em>age-assurance and ID verification</em> obligations for online services, building on the eSafety framework.",
-    consequences: "<em>Strict blocking requirements</em> for non-compliant services; regulator enforcement with fines.",
-    children: "eSafety Commissioner holds explicit powers to protect children online." },
-  { id: "us",        name: "United States",     city: "New York",     lat: 40.71,  lon: -74.01, region: "americas",
-    stance: "Self-regulation",
-    rule: "Mostly <em>self-regulation</em> at federal level; state laws add age-verification duties in some jurisdictions.",
-    consequences: "<em>Inconsistent enforcement</em>; state-level rules create a patchwork of requirements.",
-    children: "COPPA-style protections apply to under-13s; broader age rules vary by state." },
-  { id: "ca",        name: "Canada",            city: "Vancouver",    lat: 49.28,  lon: -123.12, region: "americas",
-    stance: "Self-regulation",
-    rule: "Mix of <em>provincial laws and industry self-regulation</em>; federal proposals continue to evolve.",
-    consequences: "<em>Limited federal blocking</em>; reliance on platform cooperation and voluntary measures.",
-    children: "Provincial education and parental tools emphasised for minors." },
-  { id: "fr",        name: "France",            city: "Paris",        lat: 48.86,  lon: 2.35,   region: "europe",
-    stance: "Age verification",
-    rule: "Pursues strict <em>age verification</em> under national law, with regulator (ARCOM) oversight.",
-    consequences: "<em>Blocking and fines</em> for platforms failing verification duties; legal challenges ongoing.",
-    children: "Strong minor-protection framing; verified parental consent required in many cases." },
-  { id: "de",        name: "Germany",           city: "Berlin",       lat: 52.52,  lon: 13.40,  region: "europe",
-    stance: "Blocking / filtering",
-    rule: "Youth-protection framework relies on <em>age labels, filtering and blocking</em> obligations.",
-    consequences: "<em>Blocking duties</em> for obviously harmful content; administrative enforcement.",
-    children: "Age-labelling and platform duties keyed to protecting minors." },
-  { id: "nl",        name: "Netherlands",       city: "Amsterdam",    lat: 52.37,  lon: 4.90,   region: "europe",
-    stance: "Self-regulation",
-    rule: "Emphasises <em>education, awareness and industry self-regulation</em> over mandatory verification.",
-    consequences: "<em>Limited blocking</em>; policy leans on information campaigns and voluntary tools.",
-    children: "Media-literacy education and parental guidance are the primary levers." },
-  { id: "es",        name: "Spain",             city: "Madrid",       lat: 40.42,  lon: -3.70,  region: "europe",
-    stance: "Age verification",
-    rule: "Advances <em>age-verification requirements</em> for online services under digital-protection legislation.",
-    consequences: "<em>Blocking of non-compliant services</em>; regulator coordination planned.",
-    children: "Minor-protection measures central to the digital-rights agenda." },
+  { id: "uk", name: "United Kingdom", city: "London", lat: 51.51, lon: -0.13, region: "europe", kind: "bylaw",
+    stance: "By-laws / PSPO",
+    rule: "Regulated through local by-laws or Public Spaces Protection Orders rather than one national public-urination offence. Westminster expressly prohibits urinating or defecating outside a serviced public convenience.",
+    consequences: "Westminster can issue a <em>£100 fixed-penalty notice</em>; prosecution can produce a fine of up to <em>£1,000</em>.",
+    children: "A child under 10 is below the age of criminal responsibility in England and Wales. For a small child, the realistic response would normally be directed towards the supervising adult, but the adult is not automatically guilty of the child's offence." },
+  { id: "cn", name: "China", city: "Beijing", lat: 39.90, lon: 116.40, region: "apac", kind: "bylaw",
+    stance: "Municipal sanitation",
+    rule: "Treated as a municipal environmental-sanitation violation. Beijing regulations prohibit urinating or defecating in public places.",
+    consequences: "Order to correct and generally <em>RMB 50</em>; <em>RMB 200</em> where the circumstances are serious, such as refusing to correct the conduct.",
+    children: "A person under 14 cannot receive an administrative penalty. The guardian may instead be ordered to provide discipline and supervision." },
+  { id: "sg", name: "Singapore", city: "Singapore", lat: 1.35, lon: 103.82, region: "apac", kind: "statute",
+    stance: "Cleanliness offence",
+    rule: "National public-cleanliness regulations prohibit urination or defecation in streets, public places, drains, waterways, vacant land and similar locations, except appropriate toilet facilities.",
+    consequences: "An offence under the Environmental Public Health regime, potentially resulting in <em>a fine</em>; the amount depends on the enforcement route and applicable penalty provisions.",
+    children: "The cited cleanliness rule contains no express \u201cyoung child needing the toilet\u201d exception. Age, capacity, supervision and prosecutorial discretion would nevertheless be material." },
+  { id: "jp", name: "Japan", city: "Tokyo", lat: 35.68, lon: 139.69, region: "apac", kind: "statute",
+    stance: "Minor offence",
+    rule: "The Minor Offenses Act covers urinating or defecating on roads, in parks and in other public gathering places. It also covers causing another person to do so.",
+    consequences: "Classified as a <em>minor offence</em>, rather than an indecent-exposure offence.",
+    children: "A person under 14 is not criminally punishable under the Penal Code. The \u201ccausing another person\u201d wording could become relevant to an adult deliberately directing the behaviour; ordinary emergency toileting is a very different situation." },
+  { id: "kr", name: "South Korea", city: "Seoul", lat: 37.57, lon: 126.98, region: "apac", kind: "statute",
+    stance: "Minor offence",
+    rule: "Public urination or defecation in streets, parks and other public gathering places is covered by the Punishment of Minor Offenses Act.",
+    consequences: "Up to <em>KRW 100,000</em>, detention or a minor fine; the standard payment-notice amount is generally <em>KRW 50,000</em>.",
+    children: "The provision is not framed as sexual misconduct. General rules on juvenile responsibility and enforcement discretion remain relevant." },
+  { id: "tw", name: "Taiwan", city: "Taipei", lat: 25.03, lon: 121.57, region: "apac", kind: "bylaw",
+    stance: "Park regulations",
+    rule: "Taipei park rules expressly prohibit public urination and other specified inappropriate conduct in parks.",
+    consequences: "<em>NTD 1,200\u20136,000</em>, with escalating treatment possible for repeat violations.",
+    children: "Under 14, no administrative penalty is imposed. For ages 14\u201317, a penalty may be reduced." },
+  { id: "nz", name: "New Zealand", city: "Wellington", lat: -41.29, lon: 174.78, region: "apac", kind: "statute",
+    stance: "National offence",
+    rule: "A national offence under section 32 of the Summary Offences Act 1981: urinating or defecating in a public place other than a public lavatory.",
+    consequences: "Maximum fine of <em>NZD 200</em>. There is a statutory defence where the person had reasonable grounds to believe they would not be observed.",
+    children: "The privacy defence could be relevant where a parent shields a child in an emergency. Youth-responsibility rules and enforcement discretion would also apply." },
+  { id: "au", name: "Australia", city: "Canberra", lat: -35.28, lon: 149.13, region: "apac", kind: "admin",
+    stance: "State/territory offence",
+    rule: "State and territory legislation applies; there is no single national rule. In the ACT, urinating in a public place other than a toilet is an offence.",
+    consequences: "Maximum <em>10 penalty units</em> under the ACT Crimes Act; the monetary value of a penalty unit can change.",
+    children: "The statutory offence is general; youth-justice rules, the child's age and the circumstances would determine whether formal action was possible or appropriate." },
+  { id: "us", name: "United States", city: "New York", lat: 40.71, lon: -74.01, region: "americas", kind: "civil",
+    stance: "Civil violation",
+    rule: "Primarily a state or municipal matter, not a federal public-urination offence. New York City treats public urination as an administrative or civil violation under its sanitation code.",
+    consequences: "NYC's 2017 civil penalty schedule set <em>USD 75</em> for a first violation, with higher maximum exposure. Current local schedules should be checked before relying on the amount.",
+    children: "Rules differ significantly by state and city. A very young child is unlikely to be treated like an adult offender, but the parent's conduct could be examined under separate local rules." },
+  { id: "ca", name: "Canada", city: "Vancouver", lat: 49.28, lon: -123.12, region: "americas", kind: "bylaw",
+    stance: "Municipal by-law",
+    rule: "Generally municipal or provincial rather than a single federal offence. Vancouver's Health By-law prohibits urinating or defecating in a street or public place outside a designated facility.",
+    consequences: "Vancouver's ticketing by-law lists a <em>CAD 500</em> ticket amount for the offence.",
+    children: "The by-law itself does not create a general emergency-toileting exemption for children. Age, enforceability and officer discretion remain important." },
+  { id: "fr", name: "France", city: "Paris", lat: 48.86, lon: 2.35, region: "europe", kind: "admin",
+    stance: "Contravention",
+    rule: "Public urination is treated as a public-cleanliness and public-order contravention rather than a sexual offence.",
+    consequences: "Paris states that urinating in the street can attract a <em>\u20ac135 fine</em>.",
+    children: "A small child's age and the actions of the supervising adult would materially affect enforcement. The ordinary classification remains public sanitation, not indecent exposure." },
+  { id: "de", name: "Germany", city: "Berlin", lat: 52.52, lon: 13.40, region: "europe", kind: "admin",
+    stance: "Administrative offence",
+    rule: "Usually dealt with under state or municipal administrative-offence and cleanliness rules rather than one specific nationwide crime. Berlin includes public urination in its administrative warning-fine framework.",
+    consequences: "Depending on the circumstances, an administrative warning payment or formal fine. Berlin warning payments generally fall between <em>\u20ac5 and \u20ac55</em>, with formal proceedings possible where a warning is inappropriate.",
+    children: "A young child's responsibility would be limited by German age and capacity rules. An adult is not automatically fined simply because they are the parent." },
+  { id: "nl", name: "Netherlands", city: "Amsterdam", lat: 52.37, lon: 4.90, region: "europe", kind: "bylaw",
+    stance: "Municipal offence",
+    rule: "Municipal General Local Regulations (APV) prohibit relieving oneself publicly outside designated places.",
+    consequences: "A municipal offence, ordinarily dealt with by <em>a standard fine</em> under the applicable penalty schedule.",
+    children: "No child-specific emergency exception appears in the cited municipal provision. Age and the adult's behaviour would be considered separately." },
+  { id: "es", name: "Spain", city: "Madrid", lat: 40.42, lon: -3.70, region: "europe", kind: "bylaw",
+    stance: "Municipal sanitation",
+    rule: "Primarily governed through municipal cleanliness and public-space ordinances. Madrid treats public urination as conduct that dirties or degrades public space.",
+    consequences: "An administrative sanitation fine; the amount depends on the current ordinance and classification. Madrid's regulations were replaced in 2022, so older quoted fine amounts should not be relied upon.",
+    children: "Normally a sanitation matter rather than indecent exposure. The age of the child, toilet availability and the supervising adult's conduct would affect enforcement." },
 ];
 
-/* stance → color mapping */
+/* legal-instrument kind \u2192 color mapping */
 const STANCE_COLORS = {
-  "Age verification":     "#66ff8c",
-  "Registration + ID":    "#ffb000",
-  "Blocking / filtering": "#ff5f4d",
-  "Self-regulation":      "#5fe3c8",
+  statute: "#66ff8c",
+  bylaw:   "#ffb000",
+  admin:   "#ff5f4d",
+  civil:   "#5fe3c8",
 };
 
 /* =========================================================================
@@ -1166,7 +1166,7 @@ function detailHTML(j) {
     </div>
     <div class="d-meta">
       <span class="badge region" style="color:${REGIONS[j.region].color};border-color:${REGIONS[j.region].color}88;background:${REGIONS[j.region].color}14">${REGIONS[j.region].label}</span>
-      <span class="badge stance" style="color:${STANCE_COLORS[j.stance]};border-color:${STANCE_COLORS[j.stance]}88;background:${STANCE_COLORS[j.stance]}14">${j.stance}</span>
+      <span class="badge stance" style="color:${STANCE_COLORS[j.kind]};border-color:${STANCE_COLORS[j.kind]}88;background:${STANCE_COLORS[j.kind]}14">${j.stance}</span>
       <span class="d-coords mono">${j.lat.toFixed(2)}°, ${j.lon.toFixed(2)}°</span>
     </div>
     <div class="rule-row"><div class="rule-k">Rule basis</div><div class="rule-v">${j.rule}</div></div>
